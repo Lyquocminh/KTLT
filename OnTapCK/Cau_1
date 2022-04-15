@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(){
+	int n,m;
+	do{
+		printf("Nhap so luong sinh vien lop DHTH16A: "); scanf("%d", &n);
+		printf("Nhap so luong sinh vien lop DHTH16B: "); scanf("%d", &m);
+	}while(n<=0 || m<=0);
+	float *A;
+	A = (float*)malloc(n*sizeof(float));
+	float *B;
+	B = (float*)malloc(n*sizeof(float));
+	int SLHocLaiLopA = 0, SLHocLaiLopB = 0;
+	printf("Nhap diem cua lop DHTH16A\n");
+	for(int i=0; i<n;i++){
+		printf("Diem sinh vien thu %d: ", i+1);
+		scanf("%f", A+i);
+		if(*(A+i)<3) SLHocLaiLopA++;
+	}
+	printf("Nhap diem cua lop DHTH16B\n");
+	for(int i=0; i<m;i++){
+		printf("Diem sinh vien thu %d: ", i+1);
+		scanf("%f", B+i);
+		if(*(B+i)<3) SLHocLaiLopB++;
+	}
+	printf("Ti le sinh vien hoc lai lop DHTH16A: %.3f %%", 1.0*SLHocLaiLopA/n*100);
+	printf("\nTi le sinh vien hoc lai lop DHTH16B: %.3f %%", 1.0*SLHocLaiLopB/m*100);	
+	return 0;
+}
